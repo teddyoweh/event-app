@@ -35,12 +35,13 @@ export default function TabBar(){
             flexDirection: 'row',
             alignItems: 'center',
             justifyContent: 'space-around',
-            position: 'absolute',
+            // position: 'absolute',
             bottom: 0,
             backgroundColor: '#ffffffb0',
             width: '100%',
             paddingBottom: 30,
             paddingTop: 10,
+           
             // height:"20%",
 
 
