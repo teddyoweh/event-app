@@ -9,6 +9,7 @@ import { Ionicons,Foundation } from '@expo/vector-icons';
 import { AddSquare, TicketDiscount } from "iconsax-react-native";
 import { BlurView } from 'expo-blur';
 import CreateStacks from './create';
+import EventScreen from './home/event';
 
 
  
@@ -24,12 +25,14 @@ const Tab = createBottomTabNavigator();
  
       <Tab.Navigator
         screenOptions={({ route }) => ({
-          tabBarStyle: { position: 'absolute' },
+          tabBarStyle: { position: 'absolute',paddingTop:10,borderTopWidth:0 },
           tabBarShowLabel: false,
           tabBarBackground: () => (
-            <BlurView tint="light" intensity={100} style={[StyleSheet.absoluteFill,
+            <BlurView tint="light" intensity={2000} style={[StyleSheet.absoluteFill,
             {
-              backgroundColor:"#ffffffb0",
+      
+              backgroundColor:"#ebecf100",
+              borderWidth:0,
             }]
             } />
           ),
@@ -56,7 +59,7 @@ const Tab = createBottomTabNavigator();
 
          
           },
-          tabBarActiveTintColor: 'tomato',
+          tabBarActiveTintColor: 'black',
           tabBarInactiveTintColor: 'gray',
         })}
       >
@@ -81,8 +84,10 @@ const Stack = createNativeStackNavigator();
           headerShown: false,
         }}
       >
+                <Stack.Screen name="EventScreen" component={EventScreen} />
         <Stack.Screen name="Main" component={MainStacks} />
         <Stack.Screen name="CreateStacks" component={CreateStacks} />
+
       </Stack.Navigator>
     </NavigationContainer>
 

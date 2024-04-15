@@ -8,6 +8,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeStacks from './views/app/home';
 import { BlurView } from 'expo-blur';
 import AppStacks from './views/app';
+import AuthStack from './views/auth';
 const Tab = createBottomTabNavigator();
  
 export default function App() {
@@ -21,6 +22,7 @@ style={{
 >
   <StatusBar/>
   <AppStacks/>
+{/* <AuthStack/>   */}
 </View>
   );
 }

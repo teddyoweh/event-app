@@ -6,6 +6,8 @@ import * as ImagePicker from 'expo-image-picker';
 import { Feather } from '@expo/vector-icons';
 import {Image as ImageICon}  from 'iconsax-react-native'
 import { BlurView } from "expo-blur";
+import { EvilIcons } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
 function RenderDetails() {
     const [image, setImage] = useState(null);
      
@@ -48,7 +50,7 @@ function RenderDetails() {
                     borderColor:"transparent",
                     marginBottom:18,
                     fontSize:50,
-                    fontWeight:"400"
+                    fontWeight:"800"
                  
                 }}
                 
@@ -64,8 +66,8 @@ function RenderDetails() {
 
                 <TouchableOpacity
                 style={{
-                    paddingVertical:15,
-                    paddingHorizontal:16,
+                    paddingVertical:14,
+                    paddingHorizontal:20,
                     borderRadius:60,
                     borderWidth:0,
                     borderColor:"transparent",
@@ -76,13 +78,13 @@ function RenderDetails() {
                 >
                     <Text
                     style={{
-                        color:"#333",
+                        color:"#00",
                         fontSize:16,
-                        fontWeight:"400"
+                        fontWeight:"500"
                          
                     }}
                     >
-                        Select Event Type
+                        select event type
                     </Text>
                 </TouchableOpacity>
                 </View>
@@ -92,8 +94,8 @@ function RenderDetails() {
                     borderWidth:0,
                     borderColor:"transparent",
                     marginBottom:17,
-                    fontSize:19,
-                    fontWeight:"400",
+                    fontSize:23,
+                    fontWeight:"500",
                     lineHeight:26 
                  
                 }}
@@ -188,18 +190,19 @@ function RenderDetails() {
 
                     }}
                     >
-                        <ImageICon
+                        {/* <ImageICon
                         size={60}
 
                         color="#a3a3a3"
                         variant="Bold"
                         
-                        />
+                        /> */}
+                        <Ionicons name="image" size={80} color="#ccc" />
                         <Text
                         style={{
                             color:"#a3a3a3",
-                            fontSize:15,
-                            fontWeight:"400",
+                            fontSize:13,
+                            fontWeight:"500",
                             marginTop:10
                         
                         }}
@@ -233,6 +236,150 @@ function RenderDetails() {
                     style={{
                         color:"#fff",
                         textAlign:"center",
+                        fontSize:19,
+                        fontWeight:"500"
+                    }}
+                    >
+                        Next
+                    </Text>
+                </TouchableOpacity>
+            </View>
+        </KeyboardAvoidingView>
+    )
+}
+
+function RenderLocation() {
+    const event_types = [
+        'In-Person',
+        'Online',
+    ]
+
+    const [activeType, setActiveType] = useState(event_types[0])
+
+    return (
+        <KeyboardAvoidingView
+        behavior="padding"
+        keyboardVerticalOffset={160}
+        style={{
+         
+            padding:20,
+            flexDirection:"column",
+            justifyContent:'space-between',
+            height:"100%"
+        
+        }}
+        >
+            <ScrollView
+            
+            showsVerticalScrollIndicator={false}
+            >
+            <Text
+            style={{
+                fontSize:40,
+                fontWeight:"700",
+                color:"#333",
+                marginBottom:14
+            }}
+            >
+                Where is your event taking place?
+
+            </Text>
+            
+            <Text
+            style={{
+                fontSize:16,
+                fontWeight:"300",
+                color:"#000",
+                marginBottom:14
+            }}
+            >
+                E.g Lagos, San Francisco, Dubai, Online
+            </Text>
+            <View
+            style={{
+                flexDirection:"row",
+            }}
+            >
+
+        
+            <View
+            style={{
+                flexDirection:"row",
+                justifyContent:"flex-start",
+                alignItems:"center",
+                marginBottom:10,
+                backgroundColor:"#f1f1f1",
+                borderRadius:60,
+                padding:8
+            }}
+            >
+                {
+                    event_types.map((type, index) => {
+                        return (
+                            <TouchableOpacity
+                            onPress={() => {
+                                setActiveType(type)
+                                Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium)
+                            }}
+                            key={index}
+                            style={{
+                                paddingVertical:10,
+                                paddingHorizontal:20,
+                                borderRadius:60,
+                                backgroundColor:activeType === type ? "#a637fe" : "transparent",
+                            }}
+                            >
+                                <Text
+                                style={{
+                                    color:activeType === type ? "#fff" : "#333",
+                                    fontSize:16,
+                                    fontWeight:"400"
+                                }}
+                                >
+                                    {type}
+                                </Text>
+                            </TouchableOpacity>
+                        )
+                    }
+                    )
+                }
+
+            </View>
+            </View>
+            <TextInput
+            placeholder="Enter location"
+            style={{
+                fontSize:35,
+                fontWeight:"600",
+                borderRadius:10,
+                borderWidth:0,
+                borderColor:"transparent",
+                marginTop:10
+            }}
+            placeholderTextColor={"#b1b1b1"}
+            />
+            </ScrollView>
+            <View
+            style={{
+                flexDirection:"row",
+                justifyContent:"center",
+                alignItems:"center"
+            }}
+            >
+                <TouchableOpacity
+                
+                style={{
+                    paddingVertical:18,
+                    paddingHorizontal:20,
+                    borderRadius:15,
+                    backgroundColor:"#a637fe",
+                    width:"100%",
+                }}
+                >
+                    <Text
+                    style={{
+                        color:"#fff",
+                        textAlign:"center",
                         fontSize:17,
                         fontWeight:"400"
                     }}
@@ -244,6 +391,7 @@ function RenderDetails() {
         </KeyboardAvoidingView>
     )
 }
+ 
 
 export default function CreateScreen({navigation}) {
     const views = [
@@ -260,7 +408,7 @@ export default function CreateScreen({navigation}) {
     const [activeView, setActiveView] = useState(views[0])
     const view_maps = {
         'Details': <RenderDetails/>,
-        'Location': 'Location',
+        'Location': <RenderLocation/>,
         'Date & Time': 'Date & Time',
         'Tickets': 'Tickets',
         'Gallery': 'Gallery',
@@ -272,7 +420,7 @@ export default function CreateScreen({navigation}) {
         flex:1,
         paddingTop:60,
         backgroundColor:"#ffffff",
-        paddingBottom:150
+        paddingBottom:160
       }}
     >
       <View
@@ -296,7 +444,7 @@ export default function CreateScreen({navigation}) {
                 
             }}
             >
-                <ArrowLeft2
+                <ArrowLeft
                 size={20}
                 color="#000"
                 />
@@ -375,7 +523,7 @@ export default function CreateScreen({navigation}) {
                             <Text
                             style={{
                                 color:activeView === view ? "#444" : "#a3a3a3",
-                                fontSize:18,
+                                fontSize:17,
                                 fontWeight:"500"
                             }}
                             >

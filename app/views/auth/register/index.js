@@ -4,12 +4,12 @@
 // Path: views/app/home/index.js
 
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import HomeScreen from './home';
-import EventScreen from './event';
+import RegisterScreen from './register';
+
 
 const Stack = createNativeStackNavigator();
 
-export default function HomeStacks() {
+export default function RegisterStacks() {
     return (
         <Stack.Navigator
         
@@ -17,8 +17,6 @@ export default function HomeStacks() {
             headerShown: false,
         }}
         >
-            <Stack.Screen name="EventScreen" component={EventScreen} />
-            <Stack.Screen name="HomeScreen" component={HomeScreen} />
-
+            <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
         </Stack.Navigator>
     );}
