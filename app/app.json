@@ -23,6 +23,12 @@
         {
           "photosPermission": "The app accesses your photos to let you share them with your friends."
         }
+      ],
+      [
+        "expo-font",
+        {
+          "fonts": ["./assets/fonts/Canela-Regular-Web.otf","./assets/fonts/Google Sans.otf"]
+        }
       ]
     ],
     "android": {
@@ -31,6 +37,7 @@
         "backgroundColor": "#ffffff"
       }
     },
+   
     "web": {
       "favicon": "./assets/favicon.png"
     }

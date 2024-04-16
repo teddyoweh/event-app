@@ -5,22 +5,18 @@
 
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
  
-import { NavigationContainer } from '@react-navigation/native';
-import RegisterStacks from './register';
-
+import DiscoverScreen from './discover';
 
 const Stack = createNativeStackNavigator();
 
-export default function AuthStack() {
+export default function DiscoverStacks() {
     return (
-        <NavigationContainer>
         <Stack.Navigator
         
         screenOptions={{
             headerShown: false,
         }}
         >
-            <Stack.Screen name="RegisterStack" component={RegisterStacks} />
+            <Stack.Screen name="DiscoverScreen" component={DiscoverScreen} />
         </Stack.Navigator>
-        </NavigationContainer>
     );}

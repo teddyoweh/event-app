@@ -6,143 +6,10 @@ import { useState } from 'react';
 import { BlurView } from 'expo-blur';
 import { FontAwesome,Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
-import Color from 'color';
-
  
  
-function RenderEvents({index, eventimg}){
-  return (
-    <View
-    style={{
-      flexDirection: "column",
-      marginRight: 2,
-      width:Dimensions.get('window').width/1.4,
-      marginLeft:4,
-
-     
-
-
-    }}
-    >
-
-
-    <View
-    key={index}
-    style={{
-      width:"100%",
-
-      height: Dimensions.get('window').height/3.2,
-    
-      // borderRadius: 30,
-      marginTop: 20,
-      // height: 200,
-      flexDirection: "column",
-    }}
-    >
-
-
-      <ImageBackground
-      source={{uri: eventimg[index]}}
-      style={{
-   
-        // width: Dimensions.get('window').width-50,
-        width:"100%",
-        height:"100%",
-        borderRadius: 30,
-        overflow: "hidden",
-        flexDirection: "column",
-        justifyContent: "flex-start",
-        alignItems: "flex-start",
-       
-        
-      }}
-    
-      >
-
-   
-        <View
-        style={{
-          padding: 15,
-        }}
-        >
-<BlurView
-intensity={40}
-tint="dark"
-        style={{
-          height: 55,
-          width: 55,
-          borderRadius: 10,
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          backgroundColor: "#ffffff2b",
-          overflow: "hidden",
-
-        }}
-        >
-          <Text
-          style={{
-            fontSize: 14,
-            fontWeight: "700",
-            color: "#fff",
-          }}
-          >
-            Mar
-          </Text>
-          <Text
-          style={{
-            fontSize: 24,
-            fontWeight: "700",
-            color: "#fff",
-          
-          }}
-          >
-            20
-          </Text>
-        </BlurView>
-        </View>
-     
-
-      </ImageBackground>
-
-
-    </View>
-    <View
-    style={{
-      flexDirection:'column',
-      marginTop: 10,
-      paddingHorizontal: 10,
-      paddingLeft: 11
-    }}
-    >
-        <Text
-        style={{
-          fontSize: 19,
-          fontWeight: "700",
-          color: "#333",
-          // fontFamily:'Times New Roman'
-        
-        }}
-        >
-          The Collective Dinner 2025
-        </Text>
-        <Text
-        style={{
-          fontSize: 15,
-          color: "#a3a3a3",
-          marginTop: 5,
-          fontWeight: "500",
-
-
-        
-        }}
-        >
-          The Luxury Hotel, Paris France
-        </Text>
-      </View>
-    </View>
-  )
-}
+ 
+ 
 export default function HomeScreen() {
     const tempimg = "https://www.teddyoweh.net/_next/static/media/oweh.43ffe13c.jpeg"
     const eventimg = ["https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D","https://i.pinimg.com/564x/43/9e/69/439e69f59e8dc522f6a9124e956a3f39.jpg","https://www.frenchweddingvenues.com/userfiles/venue/404/original/59468611.jpg","https://images.unsplash.com/photo-1683445794682-d701c185e7c5?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D","https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D","https://images.unsplash.com/photo-1544531586-fde5298cdd40?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D","https://images.unsplash.com/photo-1616428317393-acd93938b4fa?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"]
@@ -157,7 +24,8 @@ export default function HomeScreen() {
     return (
       <LinearGradient
       // Background Linear Gradient
-      colors={['#f4f5fb', '#ebecf1']}
+      // colors={['#f4f5fb', '#ebecf1']}
+      colors={['#fff', '#fff']}
        
         style={{
           flex: 1,
@@ -169,21 +37,26 @@ export default function HomeScreen() {
         
         }}
         >
-          <View
+          <BlurView
+     
+          intensity={100}
+          tint="light"
           style={{
             flexDirection: "row",
             justifyContent: "space-between",
             alignItems: "center",
+            backgroundColor:"#ffffff2b",
             paddingBottom: 10,
             paddingHorizontal: paddingHorizontal,
           }}
           >
             <View
             style={{
-              flexDirection:'column'
+              flexDirection:'row',
+              alignItems:'center'
             }}
             >
-
+<Image source={{uri:tempimg}} style={{width:42, height:42, borderRadius:100}}/>
               {/* <View
               style={{
                 flexDirection: "row",
@@ -206,14 +79,16 @@ export default function HomeScreen() {
                 >Baltimore, MD</Text>
                 <AntDesign name="down" size={17} color="#989bab" />
               </View> */}
-          <Image
+      <Image
           style={{
-            width: 100,
-            height: 60,
+            width: 80,
+            height: 35,
+            marginLeft:10
           
           }}
           source={require("../../../assets/logo.png")}
-          />
+          />  
+     
             </View>
             <View
             style={{
@@ -225,7 +100,7 @@ export default function HomeScreen() {
             >
                        <TouchableOpacity
                           style={{
-                            marginRight: 10,
+                            marginRight: 16,
                             // height: 55,
                             // width: 55,
                             // display: "flex",
@@ -238,222 +113,120 @@ export default function HomeScreen() {
                        
                           }}
                        >
-          <Ionicons name="notifications-outline" size={25} color="black" />          
+<Notification size="29" color="#000"/>
               </TouchableOpacity>
-              <TouchableOpacity
-              style={{
-                marginRight: 10,
-                // height: 55,
-                // width: 55,
-                // display: "flex",
-                // justifyContent: "center",
-                // alignItems: "center",
-                // borderRadius: 100,
-                // borderWidth: 0.5,
-
-              }}
-              >
-            <Category strokeWidth={0} size={25} color="black" />
-              </TouchableOpacity>
+       
      
             </View>
-          </View>
+          </BlurView>
           <ScrollView
           showsVerticalScrollIndicator={false}
+          contentContainerStyle={{
+            // marginTop: 30,
+            paddingBottom: 100,
+            paddingHorizontal: 5,
+            flexDirection:'row',
+            flexWrap: "wrap",
+            justifyContent: "space-between",
+            height: "100%",
+        
+          }}
         
           >
-             
-            <ScrollView
-            contentContainerStyle={{
-              // marginTop: 30,
-
-  
-              marginBottom: 20,
+            <View
+            style={{
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
               paddingHorizontal: paddingHorizontal,
-            }}
-            showsHorizontalScrollIndicator={false}
-            horizontal
-            >
-  
-              {
-                options.map((option, index) => {
-                  return (
-                    <TouchableOpacity
-                    key={index}
-                    onPress={() => setActive(index)}
-                    style={{
-                      backgroundColor: index==active?"#000": "#dce0f5",
-                      padding: 10,
-                      paddingHorizontal: 20,
-                      paddingVertical: 16,
-                      borderRadius: 60,
-                      marginRight: 8,
-                      display: "flex",
-                      flexDirection: "row",
-                      alignItems: "center",
-                      // borderColor: index==active?"#333": "#000",
-                      // borderWidth: 1,
-                      //abb4f6
-                    }}
-                    >
-                      <Text
-                      style={{
-                        fontSize: 15,
-                        fontWeight: "500",
-                        color: index==active?"#fff":"#8b9af0",
-                        marginRight: 5,
-             
-                      }}
-                      >{option}</Text>
-                      {
-                        index === 0 && (
-                          <AntDesign name="down" size={14} color={active==index?"#fff":'#8b9af0'} />
-  
-                        ) 
-                      }
-                    </TouchableOpacity>
-                  )
-                })
-              }
-            </ScrollView>
-            <View
-            style={{
-              marginTop: 4,
-              flexDirection: "column",
-              marginBottom: 30,
+              marginTop: 20,
+              height:"90%",
+              width: "100%",
             }}
             >
-              <View
+              {/* <Text
               style={{
-                flexDirection: "row",
-                justifyContent: "space-between",
-                alignItems: "flex-start",
-                paddingHorizontal: paddingHorizontal,
-              }}
-              >
-                <Text
-                style={{
-                  fontSize: 20,
-                  fontWeight: "500",
-                  width: "80%",
-                  marginBottom: 1,
-
-
-                }}
-                >
-                  Upcoming Events
-                  {/* Your events / <Text
-                  style={{
-                    fontSize: 22,
-                    fontWeight: "500",
-                    
-                    color: "#989bae",
-                  
-                  }}
-                  >
-                  moments that redefine experiences.
-                  </Text> */}
-                </Text>
-                <TouchableOpacity
-                style={{
-                  flexDirection: "row",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  borderBottomWidth: 1,
-                  borderBottomColor: "#a3a3a3",
-                }}
-                >
-                <Text
-                style={{
-                  fontSize: 14,
-                  color: "#a3a3a3",
+                fontSize: 25,
+                fontWeight: "700",
+                color: "#000",
                 
-                }}
-                >
-                  View all
-                </Text>
-                </TouchableOpacity>
-  
-              </View>
-              <ScrollView
-              horizontal
-              showsHorizontalScrollIndicator={false}  
-              // bounces={false}
-              style={{
-                marginTop:0
+                marginBottom: 24,
               }}
               >
-                {
-                  [1,2,3].map((item, index) => {
-                    return (
-                     <RenderEvents index={index} eventimg={eventimg} />
-                    )
-                  })
-                }
-              </ScrollView>
-  
-            </View>
-            <View
-            style={{
-              flexDirection: "column",
-              marginBottom: 20,
-              paddingBottom: 100
-            }}
-            >
-              <View
+                No Upcoming Events
+              </Text> */}
+              {/* <Text
               style={{
-                flexDirection: "row",
-                justifyContent: "space-between",
-                alignItems: "center",
-                paddingHorizontal: paddingHorizontal,
-
+                fontSize: 17,
+                fontWeight: "700",
+                color: "#333",
+                fontFamily:"Google Sans",
+                marginBottom:30,
+                textAlign: "center",
+                color: "#9d9d9f",
+                paddingHorizontal: 20,
               }}
-              >
-                <Text
-                style={{
-                  fontSize: 23,
-                  fontWeight: "400",
-                }}
-                >
-                 Recommend for you
-                </Text>
-                <TouchableOpacity
-                style={{
-                  flexDirection: "row",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  borderBottomWidth: 1,
-                  borderBottomColor: "#a3a3a3",
-                }}
-                >
-                <Text
-                style={{
-                  fontSize: 16,
-                  color: "#a3a3a3",
-                
-                }}
-                >
-                  View all
-                </Text>
-                </TouchableOpacity>
-  
-              </View>
-              <ScrollView
-              horizontal
-              showsHorizontalScrollIndicator={false}  
               
               >
-                {
-                  [1,2,3,4,5,6,7,8,9,10].map((item, index) => {
-                    return (
-                      <RenderEvents index={index} eventimg={eventimg.slice(3)} />
+               Events that redefine experiences  - create or discover events for you.
+              </Text> */}
+              {/* <TouchableOpacity
+              style={{
+                backgroundColor: "#111",
+                padding: 10,
+                paddingHorizontal: 18,
+                paddingVertical: 16,
+                borderRadius: 60,
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                marginBottom: 15,
+                // borderColor: "#000",
+                // borderWidth: 1,
+              }}
+              
+              >
+                <Text
+                style={{
+                  fontSize: 19,
+                  fontWeight: "700",
+                  color: "#fff",
+                  fontFamily:"Google Sans",
+                }}
+                >
+                  Create Event
+                </Text>
+              </TouchableOpacity> */}
+              <TouchableOpacity
+              style={{
+                backgroundColor: "#F1F1F1",
+                padding: 10,
+                paddingHorizontal: 18,
+                paddingVertical: 16,
+                borderRadius: 60,
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                marginBottom: 20,
+                // borderColor: "#000",
+                // borderWidth: 1,
+              }}
+              
+              >
+                <Text
+                style={{
+                  fontSize: 19,
+                  fontWeight: "700",
+                  color: "#333",
+                  fontFamily:"Canela",
+                }}
+                >
+                  Discover Events
+                </Text>
+              </TouchableOpacity>
 
-                    )
-                  })
-                }
-              </ScrollView>
-  
             </View>
+       
           </ScrollView>
   
         </LinearGradient>

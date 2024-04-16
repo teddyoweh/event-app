@@ -17,8 +17,9 @@ export default function HomeStacks() {
             headerShown: false,
         }}
         >
-            <Stack.Screen name="EventScreen" component={EventScreen} />
             <Stack.Screen name="HomeScreen" component={HomeScreen} />
+            <Stack.Screen name="EventScreen" component={EventScreen} />
+
 
         </Stack.Navigator>
     );}
